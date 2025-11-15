@@ -1,4 +1,5 @@
 import "./App.css";
+import Item from "./components/Item";
 // import { useState } from "react";
 
 function App() {
@@ -6,8 +7,11 @@ function App() {
 
   return (
     <div className="app">
-      🎉 Start by opening src/App.jsx!
       {/* <button onClick={() => setCounter(counter + 1)}>Increment</button> */}
+
+      <Item />
+      <Item />
+      <Item />
     </div>
   );
 }
