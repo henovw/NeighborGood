@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import MainMap from "./components/MainMap.jsx"
 import SideBar from "./components/SideBar.jsx"
@@ -8,6 +9,7 @@ function App() {
       name: "KFC",
       category: "Soup kitchen",
       description: "Creating tasty chicken for all, high-quality fast fried chicken.",
+      longDescription: "KFC’s mission is to serve craveable, high-quality fried chicken with pride in a fast, friendly, and welcoming environment, making sure every guest leaves happy by blending their iconic recipes with real-cooked freshness and a genuine hospitality.",
       link: "https://kfc.ca",
       lat: 49.267535,
       lng: -123.128936,
@@ -26,6 +28,7 @@ function App() {
       name: "Vancouver Food Bank",
       category: "Food bank",
       description: "Local nonprofit organizing food delivery to the underpriveledged",
+      longDescription: "Serving more than 800,000 visits each year, it distributes fresh and nutritious food both directly to clients and through over 160 community agencies such as shelters, school programs, and community kitchens. ",
       link: "https://foodbank.bc.ca",
       lat: 49.282630,
       lng: -123.134956,
@@ -45,6 +48,7 @@ function App() {
       name: "BC Cancer Foundation",
       category: "Medical research",
       description: "Donate towards research to save lives around the world.",
+      longDescription: "BC Cancer Research (based in Vancouver) is dedicated to reducing the burden of cancer in British Columbia by integrating basic biomedical research, genomics, clinical trials, population health, and health services research. ",
       link: "https://bccancerfoundation.com/",
       lat: 49.263212,
       lng: -123.120524,
@@ -60,12 +64,31 @@ function App() {
       ]
     },
   ]
+
+  const [selected, setSelected] = useState(null);
+
+  const onSelect = (id) => {
+    setSelected(id)
+  }
+
   return (
-    <div class="app">
-      <SideBar list={data} />
+    <div>
+      <div className="title">
+      <h1>NeighbourGood</h1>
+    </div>
+    <div className="app">
+      
+      <SideBar 
+        list={data}
+        selected={selected}
+        onSelect={onSelect}
+      />
       <MainMap
         list={data}
+        selected={selected}
+        onSelect={onSelect}
       />
+    </div>
     </div>
   )
 }

@@ -14,7 +14,6 @@ const ImageMarker = ({ img, onClick }) => (
   );
 
 function MainMap(props) {
-    const [selected, setSelected] = useState(null)
 
     const defaultProps = {
         center: {
@@ -25,6 +24,9 @@ function MainMap(props) {
       };
 
     const apiKey = import.meta.env.REACT_APP_API_KEY
+    const onSelect = typeof props.onSelect === "function" ? props.onSelect : () => {};
+    const selected = props.selected || null;
+
     
     return (
         <div className="mainContainer">
@@ -36,14 +38,14 @@ function MainMap(props) {
         >
         {props.list.map((item) => (
             <ImageMarker lat={item.lat} lng={item.lng} img={item.img}
-                onClick={() => setSelected(item)}
+                onClick={() => props.onSelect(item)}
             />
         ))}
 
-        {selected && <MiniDesc
+        {props.selected && <MiniDesc
             name={selected.name}
             description={selected.description}
-            onClose={() => setSelected(null)}
+            onClose={() => props.onSelect(null)}
             lat={selected.lat}
             lng={selected.lng}
             img={selected.img}

@@ -10,7 +10,7 @@ function MiniDesc(props) {
             <h1>{props.name}</h1>
             <p>{props.description}</p>
             <br></br>
-            <div class="categories">
+            <div className="categories">
                 
             {props.categories.map(item => (
                 <p className="category" key={item}>{item}</p>
