@@ -30,7 +30,7 @@ function MainMap(props) {
 
 
         <GoogleMapReact
-            bootstrapURLKeys={{ key: "AIzaSyD2lWRF2-QLrl0EUlwm3m_q50xmLD-1Yos" }}
+            bootstrapURLKeys={{ key: "" }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
         >
