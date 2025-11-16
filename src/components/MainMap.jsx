@@ -31,7 +31,7 @@ function MainMap(props) {
     return (
         <div className="mainContainer">
 
-        <GoogleMapReact
+        <GoogleMapReact 
             bootstrapURLKeys={{ key: "AIzaSyCwYKd03IUKc1UwZBuyxDIOR8ldxjrPd9Y" }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}

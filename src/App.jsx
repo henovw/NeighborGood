@@ -75,6 +75,7 @@ function App() {
     <div>
       <div className="title">
       <h1>NeighbourGood</h1>
+      <h2>Hackcamp 2025</h2>
     </div>
     <div className="app">
       
